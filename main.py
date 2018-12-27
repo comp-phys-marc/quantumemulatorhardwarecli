@@ -1,15 +1,14 @@
 import Adafruit_GPIO.FT232H as FT232H
 
-def query_connected_devices():
-
-    # Temporarily disable FTDI serial drivers.
+# Temporarily disable FTDI serial drivers.
     FT232H.use_FT232H()
 
     # Find the first FT232H device.
     ft232h = FT232H.FT232H()
 
-    print
-    'Scanning all I2C bus addresses...'
+def query_connected_devices():
+
+    print 'Scanning all I2C bus addresses...'
     # Enumerate all I2C addresses.
     for address in range(127):
         # Skip I2C addresses which are reserved.
