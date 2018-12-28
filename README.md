@@ -4,6 +4,8 @@ Quantum Emulator Hardware Command Line Interface
 CLI tool to provide a cross-platform interface for accessing Q.E.D. hardware through USB using the I2C on the FT232H in the Python programming language.
 This is built on [AdaFruit's Python GPIO library](https://github.com/adafruit/Adafruit_Python_GPIO) and the libFTDI library. Supports Windows, Mac OSX, and Linux platforms.
 
+Should be developed separately form Quantum Emulation Engine services, not using the smae python environment found in `distributedemulator/venv`.
+
 ## Setup the Adafruit library dependency
 
 - On a Debian-based Linux like Raspbian, Ubuntu, etc. in a terminal execute:
@@ -45,3 +47,17 @@ This is built on [AdaFruit's Python GPIO library](https://github.com/adafruit/Ad
     make
     sudo make install
     ```
+
+Make sure that the outputs of `sudo make install` are installed in `/usr/lib/python2.7`, not in another place. The tool is compatible only with python 2.7.
+
+## Use
+
+To run the tool:
+
+```
+sudo /usr/bin/python2.7 main.py <args>
+```
+
+## Notes
+
+The hardware does not work over USB 3.0 ports at the moment.
